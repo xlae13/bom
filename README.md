@@ -1,13 +1,13 @@
-# kjv
+# bom
 
-Read the Word of God from your terminal
+Read the Book of Mormon in your terminal
 
-Forked from [https://github.com/bontibon/kjv.git](https://github.com/bontibon/kjv.git) but with the Apocrypha added.
+Forked from [https://github.com/LukeSmithxyz/kjv](https://github.com/LukeSmithxyz/kjv) but for the Book of Mormon instead of the Bible.
 
 
 ## Usage
 
-    usage: ./kjv [flags] [reference...]
+    usage: ./bom [flags] [reference...]
 
       -l      list books
       -W      no line wrap
@@ -38,8 +38,8 @@ Forked from [https://github.com/bontibon/kjv.git](https://github.com/bontibon/kj
 
 kjv can be built by cloning the repository and then running make:
 
-    git clone https://github.com/lukesmithxyz/kjv.git
-    cd kjv
+    git clone https://github.com/xlae13/bom.git
+    cd bom
     sudo make install
 
 ## License
