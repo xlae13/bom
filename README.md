@@ -36,7 +36,7 @@ Forked from [https://github.com/LukeSmithxyz/kjv](https://github.com/LukeSmithxy
 
 ## Build
 
-kjv can be built by cloning the repository and then running make:
+bom can be built by cloning the repository and then running make:
 
     git clone https://github.com/xlae13/bom.git
     cd bom
