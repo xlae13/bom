@@ -1,5 +1,5 @@
 #!/bin/sh
-# kjv: Read the Word of God from your terminal
+# bom: Read the Book of Mormon from your terminal
 # License: Public domain
 
 SELF="$0"
@@ -59,10 +59,10 @@ while [ $# -gt 0 ]; do
 		break
 	elif [ "$1" = "-l" ]; then
 		# List all book names with their abbreviations
-		get_data kjv.tsv | awk -v cmd=list "$(get_data kjv.awk)"
+		get_data bom.tsv | awk -v cmd=list "$(get_data bom.awk)"
 		exit
 	elif [ "$1" = "-W" ]; then
-		export KJV_NOLINEWRAP=1
+		export BOM_NOLINEWRAP=1
 		shift
 	elif [ "$1" = "-h" ] || [ "$isFlag" -eq 1 ]; then
 		show_help
@@ -73,7 +73,7 @@ done
 
 cols=$(tput cols 2>/dev/null)
 if [ $? -eq 0 ]; then
-	export KJV_MAX_WIDTH="$cols"
+	export BOM_MAX_WIDTH="$cols"
 fi
 
 if [ $# -eq 0 ]; then
@@ -83,13 +83,13 @@ if [ $# -eq 0 ]; then
 
 	# Interactive mode
 	while true; do
-		printf "kjv> "
+		printf "bom> "
 		if ! read -r ref; then
 			break
 		fi
-		get_data kjv.tsv | awk -v cmd=ref -v ref="$ref" "$(get_data kjv.awk)" | ${PAGER}
+		get_data bom.tsv | awk -v cmd=ref -v ref="$ref" "$(get_data bom.awk)" | ${PAGER}
 	done
 	exit 0
 fi
 
-get_data kjv.tsv | awk -v cmd=ref -v ref="$*" "$(get_data kjv.awk)" | ${PAGER}
+get_data bom.tsv | awk -v cmd=ref -v ref="$*" "$(get_data bom.awk)" | ${PAGER}

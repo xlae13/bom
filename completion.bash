@@ -1,4 +1,4 @@
-_kjv_comp() {
+_bom_comp() {
     COMPREPLY=( $(compgen -W "$1" -- ${word}) )
     if [[ ${#COMPREPLY[@]} == 1 && ${COMPREPLY[0]} == "--"*"=" ]]; then
         # If there's only one option, with =, then discard space
@@ -6,7 +6,7 @@ _kjv_comp() {
     fi
 }
 
-_kjv() {
+_bom() {
     COMPREPLY=()
     complete +o default # Disable default to not deny completion, see: http://stackoverflow.com/a/19062943/1216348
 
@@ -16,13 +16,13 @@ _kjv() {
     case "${COMP_CWORD}" in
         1)
             if [[ $word == -* ]]; then
-                _kjv_comp '-l -W -h'
+                _bom_comp '-l -W -h'
             else
-                kjv -l | while read b;
+                bom -l | while read b;
                     do echo ${b% *}
                 done
             fi
             ;;
     esac
 }
-complete -F _kjv kjv
+complete -F _bom bom
